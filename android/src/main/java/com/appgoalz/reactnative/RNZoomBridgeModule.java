@@ -212,10 +212,10 @@ public class RNZoomBridgeModule extends ReactContextBaseJavaModule implements Zo
         promise.reject("ERR_ZOOM_JOIN", "ZoomSDK has not been initialized successfully");
         return;
       }
-      zoomSDK.getMeetingService().leaveMeeting();
-      promise.resolve('Left active meeting');
+      zoomSDK.getMeetingService().leaveMeeting(false);
+      promise.resolve("Left active meeting");
     } catch (Exception ex) {
-      promise.reject('ERR_ZOOM_LEAVE_MEETING', ex);
+      promise.reject("ERR_ZOOM_LEAVE_MEETING", ex);
     }
   }
 
