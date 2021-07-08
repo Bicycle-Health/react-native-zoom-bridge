@@ -162,6 +162,10 @@ RCT_EXPORT_METHOD(
     @try {
       meetingPromiseResolve = resolve;
       meetingPromiseReject = reject;
+      if (!isInitialized) {
+        reject(@"ZoomSDK has not been initialized successfully");
+        return;
+      }
 
       MobileRTCMeetingService *ms = [[MobileRTC sharedRTC] getMeetingService];
       [self setMeetingTitleHidden:YES];
